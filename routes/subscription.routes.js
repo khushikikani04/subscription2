@@ -4,11 +4,11 @@ import { createSubscription, getUserSubscriptions } from "../controllers/subscri
 
 const subscriptionRouter = Router();
 
-subscriptionRouter.get('/', (req, res) => res.send({title: 'GET all subscriptions'}));
+// subscriptionRouter.get('/', (req, res) => res.send({title: 'GET all subscriptions'}));
 
 subscriptionRouter.get('/:id', (req, res) => res.send({title: 'GET subscriptions detailes '}));
 
-subscriptionRouter.get('/', authorize, createSubscription);
+subscriptionRouter.post('/', authorize, createSubscription);
 
 subscriptionRouter.get('/:id', (req, res) => res.send({title: 'UPDATE subscriptions'}));
 
