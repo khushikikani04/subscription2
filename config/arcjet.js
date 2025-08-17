@@ -22,17 +22,33 @@
 // export default aj;
 
 
-// config/arcjet.js
-import arcjet from "@arcjet/node";
+// // config/arcjet.js
+// import arcjet from "@arcjet/node";
+
+// const aj = arcjet({
+//     key: process.env.ARCJET_KEY, // from .env
+//     rules: [
+//         {
+//             type: "bot",
+//             mode: "report" // 👈 only reports, doesn't block
+//         }
+//     ]
+// });
+
+// export default aj;
+
+
+
+import arcjet, { detectBot } from "@arcjet/node";
 
 const aj = arcjet({
-    key: process.env.ARCJET_KEY, // from .env
-    rules: [
-        {
-            type: "bot",
-            mode: "report" // 👈 only reports, doesn't block
-        }
-    ]
+  key: process.env.ARCJET_KEY,
+  rules: [
+    detectBot({
+      mode: "DRY_RUN",  // या "LIVE"
+      allow: ["CATEGORY:SEARCH_ENGINE"], 
+    }),
+  ],
 });
 
 export default aj;
