@@ -39,17 +39,30 @@
 
 
 
+// import arcjet, { protect } from "@arcjet/node";
+
+// const aj = arcjet({
+//   key: process.env.ARCJET_KEY,
+//   rules: [
+//     protect.Bot({
+//       // mode: "DRY_RUN",  // या "LIVE"
+//       allow: ["CATEGORY:SEARCH_ENGINE"], 
+//     }),
+//   ],
+// });
+
+// export default aj;
+
 import arcjet, { detectBot } from "@arcjet/node";
 
 const aj = arcjet({
   key: process.env.ARCJET_KEY,
   rules: [
     detectBot({
-      mode: "DRY_RUN",  // या "LIVE"
-      allow: ["CATEGORY:SEARCH_ENGINE"], 
+      mode: "DRY_RUN",  // or "DRY_RUN" if you're still testing
+      allow: ["CATEGORY:SEARCH_ENGINE"],
     }),
   ],
 });
 
 export default aj;
-
