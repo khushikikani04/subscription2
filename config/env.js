@@ -14,7 +14,6 @@
 
 import { config } from "dotenv";
 
-// Load env file according to NODE_ENV
 config({ path: `.env.${process.env.NODE_ENV || 'development'}.local` });
 
 export const {
