@@ -25,14 +25,12 @@ import { signIn } from '../controllers/auth.controller.js'; // new controller fo
 
 const userRouter = Router();
 
-// User CRUD
 userRouter.get('/', getUsers);
 userRouter.get('/:id', authorize, getUser);
 userRouter.post('/', createUser);
 userRouter.put('/:id', (req, res) => res.send({ title: 'UPDATE user' }));
 userRouter.delete('/:id', (req, res) => res.send({ title: 'DELETE user' }));
 
-// 🔑 User login (sign-in)
 userRouter.post('/sign-in', signIn);
 
 export default userRouter;
